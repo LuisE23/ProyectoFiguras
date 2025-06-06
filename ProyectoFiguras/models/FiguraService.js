@@ -6,21 +6,26 @@ class FiguraService{
         return resultado;
     }
     calcularPerimetroRombo(lado = 0){
-        return 4 * lado;
+        let resultado = 4 * lado;
+        return resultado;
     }
 // Area y perimetro Figura Trapecio
     calcularAreaTrapecio(baseMayor = 0, baseMenor = 0, altura = 0){
-        return ((baseMayor + baseMenor) * altura) / 2;        
+        let resultado = ((baseMayor + baseMenor) * altura) / 2;   
+        return resultado;     
     }
     calcularPerimetroTrapecio(baseMayor = 0, baseMenor = 0, lado1 = 0, lado2 = 0){
-        return baseMayor + baseMenor + lado1 + lado2;
+        let resultado =  baseMayor + baseMenor + lado1 + lado2;
+        return resultado;
     }
 // Area y perimetro Figura Paralelogramo
     calcularAreaParalelogramo(base = 0, altura = 0){
-        return base * altura;
+        let resultado = base * altura;
+        return resultado;
     }
     calcularPerimetroParalelogramo(base = 0, lado = 0){
-        return 2 * (base + lado);
+        let resultado = 2 * (base + lado);
+        return resultado;
     }
 
 }

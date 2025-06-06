@@ -1,5 +1,6 @@
 
-import FiguraService from "../models/FiguraService";
+import FiguraService from "../models/FiguraService.js";
+
 class FiguraController{
 
     figuraServices = null
@@ -10,18 +11,21 @@ class FiguraController{
         this.calcularAreaFiguras=this.calcularAreaFiguras.bind(this);
     }
 
-    formularioCalcularArea(request, reponse){
-        reponse.render ('area');
+    formularioCalcularArea(request, response){
+        response.render ('area');
     }
 
-    calcularAreaFiguras(){
-        const {figura, base, altura,} = request.body;
+    calcularAreaFiguras(request, response) {
+        const {figura, diagonalMayor, diagonalMenor, baseMayor, baseMenor, altura, base} = request.body;
         let resultado;
         if(figura==='rombo'){
             resultado = this.figuraServices.calcularAreaRombo(diagonalMayor, diagonalMenor);
-        } else if (figura==='trapecio'){
-            resultado = this.figuraServices.
+        } else if (figura==='trapecio'){           
+            resultado = this.figuraServices.calcularAreaTrapecio(baseMayor, baseMenor, altura);        
+        } else if (figura === 'paralelogramo'){           
+            resultado = this.figuraServices.calcularAreaParalelogramo(base, altura);
         }
+        response.render ('area', {resultado});
     }
     
 }

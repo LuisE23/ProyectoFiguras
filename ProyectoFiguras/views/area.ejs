@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Area</title>
+    <link rel= "stylesheet" href="/style.css">
+</head>
+    <body>
+        <main>
+            <div class = "form-container"> 
+                <h2> Calcula el Area</h2>
+                <form action="/calcular" method="post"> 
+                    <select name="figura" id="figura" onchange="mostrarInputs()">
+                        <option value=""> Selecciona Figura</option>
+                        <option value="rombo"> Rombo</option>
+                        <option value="trapecio"> Trapecio</option>
+                        <option value="paralelogramo"> Paralelogramo</option>
+                    </select>
+                    <div id="inputs"></div>
+                    <button type="submit">Calcular Area </button>
+                </form>
+                <% if (typeof resultado !== 'undefined') {%>
+                <div class="result">Area: <%= resultado %></div>
+                <% } %>       
+            </div>
+            <script>
+                    function mostrarInputs(){
+                        const figura = document.getElementById("figura").value
+                        const contenedor = document.getElementById("inputs")
+                        contenedor.innerHTML = ""
+                        if(figura==='rombo'){
+                        contenedor.innerHTML = `
+                        <input type="number" name="diagonalMayor" placeholder="Diagonal Mayor" required >
+                        <input type="number" name="diagonalMenor" placeholder="Diagonal Menor" required >`    
+                    
+                    } else if (figura==='trapecio'){
+                        contenedor.innerHTML = "";            
+                        contenedor.innerHTML = `
+                        <input type="number" name="baseMayor" placeholder="Base Mayor" required >
+                        <input type="number" name="baseMenor" placeholder="Base Menor" required >
+                        <input type="number" name="altura" placeholder="Altura" required >`     
+                    
+                    } else if(figura==='paralelogramo'){
+                        contenedor.innerHTML = "";            
+                        contenedor.innerHTML = `
+                        <input type="number" name="base" placeholder="Base" required >;
+                        <input type="number" name="altura" placeholder="Altura" required >`           
+                    }
+                    
+
+                    }
+            
+            </script>
+        </main>
+    </body>
+</html>
