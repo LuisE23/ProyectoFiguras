@@ -16,15 +16,15 @@ class FiguraController{
     }
 
     calcularAreaFiguras(request, response) {
-        const {figura, diagonalMayor, diagonalMenor, baseMayor, baseMenor, altura, base} = request.body;
+        let {figura, diagonalMayor, diagonalMenor, baseMayor, baseMenor, altura, base} = request.body;
         let resultado;
-        if(figura==='rombo'){
+        if(figura=== 'rombo'){
             resultado = this.figuraServices.calcularAreaRombo(diagonalMayor, diagonalMenor);
         } 
-        else if (figura==='trapecio'){           
+        else if (figura === 'trapecio'){           
             resultado = this.figuraServices.calcularAreaTrapecio(Number(baseMayor), Number(baseMenor), Number(altura));        
         } 
-        else if (figura==='paralelogramo'){           
+        else if (figura === 'paralelogramo'){           
             resultado = this.figuraServices.calcularAreaParalelogramo(base, altura);
         }
         response.render ('area', {resultado});
