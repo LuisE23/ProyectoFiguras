@@ -9,7 +9,7 @@
     <body>
         <main>
             <div class = "form-container"> 
-                <h2> Calcula el Area</h2>
+                <h2> Calcular </h2>
                 <form action="/calcular" method="post"> 
                     <select name="figura" id="figura" onchange="mostrarInputs()">
                         <option value=""> Selecciona Figura</option>
@@ -19,10 +19,14 @@
                     </select>
                     <div id="inputs"></div>
                     <button type="submit">Calcular Area </button>
+                    <button type="submit">Calcular Perimetro </button>
                 </form>
                 <% if (typeof resultado !== 'undefined') {%>
-                <div class="result">Area: <%= resultado %></div>
-                <% } %>       
+                <div class="result">Area: <%= resultado %></div>    
+                <div class="result">Perimetro: <%= resultado%></div>      
+                <% } %>                  
+                  
+                  
             </div>
             <script>
                     function mostrarInputs(){
